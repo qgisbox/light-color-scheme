@@ -34,8 +34,6 @@ echo compile resources using pylupdate6...
 %PYTHONHOME%/python.exe %PY_LUPDATE_PATH% ^
 __init__.py ^
 qgisbox_light_color_scheme.py ^
-qgisbox_light_color_scheme_dockwidget.py ^
-qgisbox_light_color_scheme_dockwidget_base.ui ^
 -ts i18n/QgsBoxLightColorScheme_en.ts ^
 -ts i18n/QgsBoxLightColorScheme_zh.ts
 

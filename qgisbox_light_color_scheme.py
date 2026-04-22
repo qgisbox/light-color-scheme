@@ -30,9 +30,7 @@ from qgis.PyQt.QtWidgets import QAction
 from .resources import *
 
 # Import the code for the DockWidget
-from .qgisbox_light_color_scheme_dockwidget import QgsBoxLightColorSchemeDockWidget
 import os.path
-
 
 class QgsBoxLightColorScheme:
     """QGIS Plugin Implementation."""
@@ -66,10 +64,6 @@ class QgsBoxLightColorScheme:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&QGIS Light ColorScheme')
-        # TODO: We are going to let the user set this up in a future iteration
-        self.toolbar = self.iface.addToolBar(self.tr(u'QgsBoxLightColorScheme'))
-        self.toolbar.setObjectName(u'QgsBoxLightColorScheme')
 
         #print "** INITIALIZING QgsBoxLightColorScheme"
 
@@ -91,7 +85,6 @@ class QgsBoxLightColorScheme:
         """
         # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('QgsBoxLightColorScheme', message)
-
 
     def add_action(
         self,
@@ -170,6 +163,11 @@ class QgsBoxLightColorScheme:
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
+        # self.menu = self.tr(u'&QGIS Light ColorScheme')
+        # # TODO: We are going to let the user set this up in a future iteration
+        # self.toolbar = self.iface.addToolBar(self.tr(u'QgsBoxLightColorScheme'))
+        # self.toolbar.setObjectName(u'QgsBoxLightColorScheme')
+
         # icon_path = os.path.join(os.path.dirname(__file__), "resources", "icons", "icon.png")
         # self.add_action(
         #     icon_path,
@@ -185,7 +183,8 @@ class QgsBoxLightColorScheme:
         #print "** CLOSING QgsBoxLightColorScheme"
 
         # disconnects
-        self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
+        if (self.dockwidget):
+            self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
 
         # remove this statement if dockwidget is to remain
         # for reuse if plugin is reopened
@@ -207,7 +206,7 @@ class QgsBoxLightColorScheme:
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
-        del self.toolbar
+        if (self.toolbar): del self.toolbar
 
     #--------------------------------------------------------------------------
     def run(self):
