@@ -206,7 +206,6 @@ class QgsBoxLightColorScheme:
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
-        if (self.toolbar): del self.toolbar
 
     #--------------------------------------------------------------------------
     def run(self):
