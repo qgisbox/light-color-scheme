@@ -3,10 +3,10 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=QGIS Light ColorScheme
+name=QGISBox Light ColorScheme
 qgisMinimumVersion=4.0
 description=Force light mode on system set to dark mode
-version=0.1
+version=1.0.0
 author=hxbb00
 email=hxbb00@qq.com
 
@@ -23,7 +23,7 @@ hasProcessingProvider=no
 # changelog=
 
 # Tags are comma separated with spaces allowed
-tags=translate light colorScheme
+tags=light,colorScheme,theme
 
 homepage=https://github.com/qgisbox/light-color-scheme
 category=Plugins
